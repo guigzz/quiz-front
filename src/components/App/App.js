@@ -14,14 +14,15 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      username: "guillaume" // TODO
+      username: "",
+      isUsernameEditable: true
     };
   }
 
   render() {
     return (
       <div className="app">
-        <AppHeader />
+        <AppHeader disabled={!this.state.isUsernameEditable} onUsernameChange={this.handleUsernameChange.bind(this)}/>
         
         <Switch>
           <Route path="/" exact component={HomeContent}/>
@@ -29,6 +30,10 @@ class App extends Component {
         </Switch>
       </div>
     );
+  }
+
+  handleUsernameChange(e) {
+    this.setState({username: e.target.value});
   }
 }
 
