@@ -61,13 +61,15 @@ class QuizContent extends Component {
     console.log("answer: " + answer);
 
     const currentQuestionNumber = this.state.current;
+    const currentAnswers = this.state.answers;
+
     console.log("currentQuestionNUmber: " + currentQuestionNumber);
     // save the answer
     // update question counter
     this.setState({
       current: currentQuestionNumber + 1,
       answers : [
-        ...this.state.answers,
+        ...currentAnswers,
         {question: currentQuestionNumber, choice: answer}
       ]
     });
@@ -78,10 +80,26 @@ class QuizContent extends Component {
       const postData = {
         username: this.props.username,
         quizId: this.state.id,
-        answers: this.state.answers
+        answers: [
+          ...currentAnswers,
+          {question: currentQuestionNumber, choice: answer}
+        ]
       }
-      console.log("Will post data : "); console.log(postData);
+      this.postAnswers(postData);
     }
+  }
+
+  postAnswers(data) {
+    console.log("Will post data : "); console.log(data);
+    fetch('http://localhost/', {
+      method: 'post',
+      body: JSON.stringify(data)
+    })
+    .then( response => response.json())
+    .then( ({resultId}) => {
+      console.log("answers have been stored under the result ID : " + resultId);
+      // TODO : redirect to the result page
+    });
   }
 }
 
