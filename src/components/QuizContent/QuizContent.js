@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './QuizContent.css';
+import QuizQuestion from '../QuizQuestion/QuizQuestion';
 
 class QuizContent extends Component {
 
@@ -39,13 +40,10 @@ class QuizContent extends Component {
     }
     else {
       return (
-        <div className="home-content">
-          <h2>This is the content of quiz {this.state.id} : {this.state.title}</h2>
-          <h3>{thisQuestion.number}. {thisQuestion.text}</h3>
-          <ul>
-            {thisQuestion.choices.map((choice) => <li>{choice.id} - {choice.text}</li>)}
-          </ul>
-        </div>
+        <QuizQuestion 
+          number={thisQuestion.number} 
+          text={thisQuestion.text} 
+          choices={thisQuestion.choices} />
       );
     }
   }
