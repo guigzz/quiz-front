@@ -33,18 +33,54 @@ class QuizContent extends Component {
   }
 
   render() {
+    if( this.state.current === null) {
+      // no data fetched yet, wait
+      return <h1>Loading quiz...</h1>; // TODO : put a real nice loading component or animation
+    }
+    if( this.state.current > this.state.questions.length) {
+      // this question does not exists, we have finished the quiz
+      return <h1>Loading your results...</h1>; // TODO : put a real nice loading component or animation
+    }
+
     const thisQuestion = this.state.questions.find((question) => question.number === this.state.current )
 
-    if(typeof(thisQuestion) === 'undefined') { // the first render is prior to data fetching, so we'll pass here once
-      return <h1>Loading...</h1>; // TODO : put a real nice loading component or animation
+    if(typeof(thisQuestion) === 'undefined') {
+      return <h1>Oops, something went wrong...</h1>; // TODO : put a real nice loading component or animation
     }
-    else {
-      return (
-        <QuizQuestion 
-          number={thisQuestion.number} 
-          text={thisQuestion.text} 
-          choices={thisQuestion.choices} />
-      );
+
+    return (
+      <QuizQuestion 
+        number={thisQuestion.number} 
+        text={thisQuestion.text} 
+        choices={thisQuestion.choices}
+        onQuestionAnswered={(answer) => this.handleQuestionAnswered(answer)} /> // get the user choice 
+    );
+  }
+
+  handleQuestionAnswered(answer) {
+    console.log("answer: " + answer);
+
+    const currentQuestionNumber = this.state.current;
+    console.log("currentQuestionNUmber: " + currentQuestionNumber);
+    // save the answer
+    // update question counter
+    this.setState({
+      current: currentQuestionNumber + 1,
+      answers : [
+        ...this.state.answers,
+        {question: currentQuestionNumber, choice: answer}
+      ]
+    });
+
+    if(currentQuestionNumber === this.state.questions.length) {
+      // we are at the end of the quiz
+      // post answers to the servers
+      const postData = {
+        username: this.props.username,
+        quizId: this.state.id,
+        answers: this.state.answers
+      }
+      console.log("Will post data : "); console.log(postData);
     }
   }
 }

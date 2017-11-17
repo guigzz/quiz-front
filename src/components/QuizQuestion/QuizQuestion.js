@@ -15,9 +15,10 @@ class QuizQuestion extends Component {
               return (
                 <QuizQuestionChoice 
                   key={choice.id} 
-                  questionNumber={this.props.questionNumber} 
-                  choiceNumber={choice.id} 
-                  choiceText={choice.text} />
+                  questionNumber={this.props.number} 
+                  choiceId={choice.id} 
+                  choiceText={choice.text}
+                  onChoiceSelected={e => this.props.onQuestionAnswered(choice.id)} /> // passing the choice.id up to the parent
               )
             })}
           </div>
