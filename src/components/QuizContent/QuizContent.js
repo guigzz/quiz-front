@@ -9,7 +9,9 @@ class QuizContent extends Component {
     this.state = {
       id: null,
       title: null,
-      questions: []
+      questions: [],
+      current: null, // current question number
+      answers: [] // the answers of the user
     }
   }
 
@@ -23,32 +25,29 @@ class QuizContent extends Component {
       return this.setState({ // populate the state will render the component
         id: id, 
         title: title,
-        questions: questions
+        questions: questions,
+        current: 1
       });
     });
   }
 
   render() {
-    return (
-      <p className="home-content">
-        This is the content of quiz {this.state.id} : {this.state.title}.
-        <br />
-        <ul>
-          {this.state.questions.map((question) => {
-          return (
-            <li>{question.number}. {question.text}
-              <ul>
-                {question.choices.map((choice) => {
-                  return (
-                    <li>{choice.id} - {choice.text}</li>
-                  )
-                })}
-              </ul>
-            </li>
-          )})}
+    const thisQuestion = this.state.questions.find((question) => question.number === this.state.current )
+
+    if(typeof(thisQuestion) === 'undefined') { // the first render is prior to data fetching, so we'll pass here once
+      return <h1>Loading...</h1>; // TODO : put a real nice loading component or animation
+    }
+    else {
+      return (
+        <div className="home-content">
+          <h2>This is the content of quiz {this.state.id} : {this.state.title}</h2>
+          <h3>{thisQuestion.number}. {thisQuestion.text}</h3>
+          <ul>
+            {thisQuestion.choices.map((choice) => <li>{choice.id} - {choice.text}</li>)}
           </ul>
-      </p>
-    );
+        </div>
+      );
+    }
   }
 }
 
