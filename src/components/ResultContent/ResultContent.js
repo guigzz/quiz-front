@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './ResultContent.css';
 
 class ResultContent extends Component {
@@ -35,6 +36,7 @@ class ResultContent extends Component {
         <div className="result-content">
           <h2>Results of {this.state.user} for quiz {this.state.quiz} (submitted: {this.getDateFromTimestamp(this.state.id)})</h2>
           <h3>Score : {this.state.goodCounter}/{this.state.answers.length}</h3>
+          <Link to="/">Home</Link>
         </div>
       );
     }
