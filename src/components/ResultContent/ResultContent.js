@@ -8,6 +8,7 @@ class ResultContent extends Component {
       id: null,
       user: null,
       quiz: null,
+      goodCounter: null,
       answers: null
     };
   }
@@ -17,22 +18,29 @@ class ResultContent extends Component {
     
     fetch('http://localhost/?data=result&id=' + resultId)
     .then( response => response.json())
-    .then( ({username, quizId, answers}) => {
+    .then( ({username, quizId, answers, goodAnswerCounter}) => {
       return this.setState({ // populate the state will render the component
         id: resultId,
         user: username,
         quiz: quizId,
+        goodCounter: goodAnswerCounter,
         answers: answers
       });
     });
   }
   
   render() {
-    return (
-      <div className="result-content">
-        <h2>Results of {this.state.user} for quiz {this.state.quiz} (submitted: {this.getDateFromTimestamp(this.state.id)})</h2>
-      </div>
-    );
+    if(this.state.id !== null) {
+      return (
+        <div className="result-content">
+          <h2>Results of {this.state.user} for quiz {this.state.quiz} (submitted: {this.getDateFromTimestamp(this.state.id)})</h2>
+          <h3>Score : {this.state.goodCounter}/{this.state.answers.length}</h3>
+        </div>
+      );
+    }
+    else {
+      return <h1>Loading your results...</h1>
+    }
   }
 
   /**
