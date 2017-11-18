@@ -8,6 +8,7 @@ import './App.css';
 import AppHeader from '../AppHeader/AppHeader.js';
 import HomeContent from '../HomeContent/HomeContent';
 import QuizContent from '../QuizContent/QuizContent';
+import ResultContent from '../ResultContent/ResultContent'
 import HOC from '../HOC';
 
 class App extends Component {
@@ -27,6 +28,7 @@ class App extends Component {
         <Switch>
           <Route path="/" exact component={HomeContent}/>
           <Route path="/quiz/:id" component={HOC(QuizContent, {username: this.state.username})}/>
+          <Route path="/result/:id" component={ResultContent}/>
         </Switch>
       </div>
     );

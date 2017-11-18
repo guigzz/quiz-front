@@ -98,7 +98,8 @@ class QuizContent extends Component {
     .then( response => response.json())
     .then( ({resultId}) => {
       console.log("answers have been stored under the result ID : " + resultId);
-      // TODO : redirect to the result page
+      // redirect to the result page
+      this.props.history.replace(`/result/${resultId}`);
     });
   }
 }
