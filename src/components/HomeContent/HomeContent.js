@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import './HomeContent.css';
 import AppSubHeader from '../AppSubHeader/AppSubHeader';
 import QuizThumbnail from '../QuizThumbnail/QuizThumbnail';
+import Store from '../../utils/Store'; // local storage helper class
+import { APP_ID } from '../../utils/constants';
 
 class HomeContent extends Component {
 
   constructor() {
     super();
     this.state = {
-      quizzes: []
+      quizzes: [],
+      username: ""
     };
   }
 
@@ -28,6 +30,7 @@ class HomeContent extends Component {
       return <h1>Loading the list of quizzes...</h1>
     }
     else {
+      const noUsername = this.usernameIsEmpty();
       return (
         <div className="home-content">
           <AppSubHeader>
@@ -39,7 +42,8 @@ class HomeContent extends Component {
               <input 
                 id="input-username" 
                 type="text" 
-                className="input" />
+                className="input"
+                onKeyUp={this.handleUsernameChange.bind(this)} />
               </div>
             </div>
           </AppSubHeader>
@@ -47,15 +51,46 @@ class HomeContent extends Component {
           <div>
             {this.state.quizzes.map((quiz) => {
               return (
-                <Link to={`/quiz/${quiz.id}`} >
-                  <QuizThumbnail id={quiz.id} questions={quiz.questions} title={quiz.title} />
-                </Link>
+                <QuizThumbnail 
+                  key={quiz.id} 
+                  id={quiz.id} 
+                  questions={quiz.questions} 
+                  title={quiz.title} 
+                  disabled={noUsername} 
+                  onClick={this.handleThumbnailClick.bind(this, quiz)}
+                  />
               );
             })}
           </div>
         </div>
       );
     }
+  }
+
+  usernameIsEmpty() {
+    return this.state.username.length === 0 || !this.state.username;
+  }
+
+  handleUsernameChange(e) {
+    this.setState({
+      username: e.target.value
+    });
+  }
+
+  handleThumbnailClick(quiz, e) {
+    console.log("click on quiz " + quiz.id);
+    if(this.usernameIsEmpty()) {
+      console.log("please enter a username");
+      // TODO : display a modal
+    }
+    else {
+      // save the username in the store
+      const store = new Store(APP_ID);
+      store.set({username: this.state.username});
+      // start the quiz
+      this.props.history.push(`/quiz/${quiz.id}`);
+    }
+
   }
 }
 

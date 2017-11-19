@@ -1,0 +1,8 @@
+.quiz-thumbnail {
+  cursor: pointer;
+}
+
+.quiz-thumbnail.disabled {
+  cursor: default;
+  color : #bdbcbc;
+}
