@@ -81,7 +81,8 @@ class HomeContent extends Component {
     console.log("click on quiz " + quiz.id);
     if(this.usernameIsEmpty()) {
       console.log("please enter a username");
-      // TODO : display a modal
+      // TODO : display a better modal
+      alert("Please enter a username before selecting a quiz");
     }
     else {
       // save the username in the store
