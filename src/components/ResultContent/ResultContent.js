@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './ResultContent.css';
+import AppSubHeader from '../AppSubHeader/AppSubHeader';
 
 class ResultContent extends Component {
   constructor() {
@@ -34,6 +35,9 @@ class ResultContent extends Component {
     if(this.state.id !== null) {
       return (
         <div className="result-content">
+          <AppSubHeader>
+            Quiz {this.state.quiz}: TODO : get title of the quiz !!
+          </AppSubHeader>
           <h2>Results of {this.state.user} for quiz {this.state.quiz} (submitted: {this.getDateFromTimestamp(this.state.id)})</h2>
           <h3>Score : {this.state.goodCounter}/{this.state.answers.length}</h3>
           <Link to="/">Home</Link>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './QuizContent.css';
+import AppSubHeader from '../AppSubHeader/AppSubHeader';
 import QuizQuestion from '../QuizQuestion/QuizQuestion';
 
 class QuizContent extends Component {
@@ -49,11 +50,16 @@ class QuizContent extends Component {
     }
 
     return (
-      <QuizQuestion 
-        number={thisQuestion.number} 
-        text={thisQuestion.text} 
-        choices={thisQuestion.choices}
-        onQuestionAnswered={(answer) => this.handleQuestionAnswered(answer)} /> // get the user choice 
+      <div>
+        <AppSubHeader>
+          Quiz {this.state.id}: {this.state.title}
+        </AppSubHeader>
+        <QuizQuestion 
+          number={thisQuestion.number} 
+          text={thisQuestion.text} 
+          choices={thisQuestion.choices} 
+          onQuestionAnswered={(answer) => this.handleQuestionAnswered(answer)} /> {/* get the user choice */} 
+      </div>
     );
   }
 

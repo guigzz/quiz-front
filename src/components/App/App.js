@@ -23,7 +23,7 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-        <AppHeader disabled={!this.state.isUsernameEditable} onUsernameChange={this.handleUsernameChange.bind(this)}/>
+        <AppHeader />
         
         <Switch>
           <Route path="/" exact component={HomeContent}/>
