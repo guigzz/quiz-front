@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './HomeContent.css';
 import AppSubHeader from '../AppSubHeader/AppSubHeader';
+import QuizThumbnail from '../QuizThumbnail/QuizThumbnail';
 
 class HomeContent extends Component {
 
@@ -47,10 +48,7 @@ class HomeContent extends Component {
             {this.state.quizzes.map((quiz) => {
               return (
                 <Link to={`/quiz/${quiz.id}`} >
-                  <div key={quiz.id} className="quiz-thumbnail">
-                    <div>Quiz {quiz.id} - {quiz.questions} questions</div>
-                    <div>{quiz.title}</div>
-                  </div>
+                  <QuizThumbnail id={quiz.id} questions={quiz.questions} title={quiz.title} />
                 </Link>
               );
             })}
