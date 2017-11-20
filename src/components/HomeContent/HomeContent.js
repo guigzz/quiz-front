@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './HomeContent.css';
 import AppSubHeader from '../AppSubHeader/AppSubHeader';
 import QuizThumbnail from '../QuizThumbnail/QuizThumbnail';
 import Store from '../../utils/Store'; // local storage helper class
-import { APP_ID } from '../../utils/constants';
+import { APP_ID, STATS_FETCH_DELAY } from '../../utils/constants';
 
 class HomeContent extends Component {
 
@@ -13,9 +14,12 @@ class HomeContent extends Component {
     this.store = new Store(APP_ID);
     const storeContent = this.store.get();
 
+    this.statsFetchingLock = null; // to handle stats data of user if exist
+
     this.state = {
       quizzes: [],
-      username: storeContent.username
+      username: storeContent.username,
+      displayStatsButton: false
     };
   }
 
@@ -27,6 +31,12 @@ class HomeContent extends Component {
         quizzes: list
       });
     });
+
+    // for cases when we land on the homepage
+    // and get the username from the store directly,
+    // we need to fetch 'stats-exist' route,
+    // so as to know if we display the stats button
+    this.fetchStatsForUser();
   }
 
   render() {
@@ -51,6 +61,19 @@ class HomeContent extends Component {
                 value={this.state.username} />
               </div>
             </div>
+            {
+              this.state.displayStatsButton ?
+              (
+              <Link to={`/stats/${this.state.username}`} >
+                <div className="level-right">
+                  <div className="level-item">
+                    <button>Stats</button>
+                  </div>
+                </div>
+              </Link>
+              )
+              : null
+            }
           </AppSubHeader>
   
           <div>
@@ -80,6 +103,10 @@ class HomeContent extends Component {
     this.setState({
       username: e.target.value
     });
+
+    // handle fetching of stats data
+    clearTimeout(this.statsFetchingLock);
+    this.statsFetchingLock = setTimeout(this.fetchStatsForUser.bind(this), STATS_FETCH_DELAY);
   }
 
   handleThumbnailClick(quiz, e) {
@@ -96,6 +123,23 @@ class HomeContent extends Component {
       this.props.history.push(`/quiz/${quiz.id}`);
     }
 
+  }
+
+  /**
+   * Decide to fetch stats for the username or not
+   * 
+   */
+  fetchStatsForUser() {
+    if(!this.usernameIsEmpty()) {
+      console.log("fetch stats for user '" + this.state.username + "'");
+      fetch('http://localhost/?data=stats-exist&username=' + this.state.username)
+      .then( response => response.json())
+      .then( ({ result }) => {
+        this.setState({
+          displayStatsButton: result
+        });
+      });
+    }
   }
 }
 
