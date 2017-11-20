@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './StatsContent.css';
 import AppSubHeader from '../AppSubHeader/AppSubHeader';
+import format from '../../utils/DateFormatter';
 
 class StatsContent extends Component {
   constructor() {
@@ -38,7 +39,7 @@ class StatsContent extends Component {
                     <li>Quiz {quiz.quizId}: {quiz.quizTitle}
                       <ul>
                         {quiz.results.map((result) => {
-                          return <li>at {result.id}, your score : {result.score}</li>
+                          return <li>{format(result.id)}, your score : {result.score}</li>
                         })}
                       </ul>
                     </li>

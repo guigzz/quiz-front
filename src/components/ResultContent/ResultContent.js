@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './ResultContent.css';
 import AppSubHeader from '../AppSubHeader/AppSubHeader';
 import ResultItem from '../ResultItem/ResultItem';
+import format from '../../utils/DateFormatter';
 
 class ResultContent extends Component {
   constructor() {
@@ -40,7 +41,7 @@ class ResultContent extends Component {
           <AppSubHeader>
             Quiz {this.state.quiz}: {this.state.title}
           </AppSubHeader>
-          <h2>Results of {this.state.user} for quiz {this.state.quiz} (submitted: {this.getDateFromTimestamp(this.state.id)})</h2>
+          <h2>Results of {this.state.user} for quiz {this.state.quiz} (submitted: {format(this.state.id)})</h2>
           <h3>Score : {this.state.goodCounter}/{this.state.answers.length}</h3>
           <div>
             {this.state.answers.map((answer) => {
@@ -61,29 +62,6 @@ class ResultContent extends Component {
     else {
       return <h1>Loading your results...</h1>
     }
-  }
-
-  /**
-   * Get a human readable date from a unix timestamp in second
-   * @param {int} t a Unix timestamp in second 
-   */
-  getDateFromTimestamp(t) {
-    const date = new Date(t*1000);
-    // Year part from the timestamp
-    const year = date.getFullYear();
-    // month part from the timestamp
-    const month = "0" + (date.getMonth() + 1);
-    // day part from the timestamp
-    const day = "0" + date.getDate();
-    // Hours part from the timestamp
-    const hours = date.getHours();
-    // Minutes part from the timestamp
-    const minutes = "0" + date.getMinutes();
-    // Seconds part from the timestamp
-    const seconds = "0" + date.getSeconds();
-    
-    // Will display time in 10:30:23 format
-    return `${year}/${month.substr(-2)}/${day.substr(-2)} ${hours}:${minutes.substr(-2)}:${seconds.substr(-2)}`;
   }
 }
 
