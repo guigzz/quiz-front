@@ -3,7 +3,7 @@ import './QuizContent.css';
 import AppSubHeader from '../AppSubHeader/AppSubHeader';
 import QuizQuestion from '../QuizQuestion/QuizQuestion';
 import Store from '../../utils/Store';
-import { APP_ID } from '../../utils/constants.js';
+import { APP_ID, BACKEND_URL } from '../../utils/constants.js';
 
 class QuizContent extends Component {
 
@@ -27,7 +27,7 @@ class QuizContent extends Component {
     const quizId = this.props.match.params.id;
     console.log("will fetch quiz " + quizId);
     
-    fetch('http://localhost/?data=quiz&id=' + quizId)
+    fetch(BACKEND_URL + '?data=quiz&id=' + quizId)
     .then( response => response.json())
     .then( ({id, title, questions}) => {
       return this.setState({ // populate the state will render the component
@@ -103,7 +103,7 @@ class QuizContent extends Component {
 
   postAnswers(data) {
     console.log("Will post data : "); console.log(data);
-    fetch('http://localhost/', {
+    fetch(BACKEND_URL, {
       method: 'post',
       body: JSON.stringify(data)
     })

@@ -4,7 +4,7 @@ import './HomeContent.css';
 import AppSubHeader from '../AppSubHeader/AppSubHeader';
 import QuizThumbnail from '../QuizThumbnail/QuizThumbnail';
 import Store from '../../utils/Store'; // local storage helper class
-import { APP_ID, STATS_FETCH_DELAY } from '../../utils/constants';
+import { APP_ID, STATS_FETCH_DELAY, BACKEND_URL } from '../../utils/constants';
 
 class HomeContent extends Component {
 
@@ -24,7 +24,7 @@ class HomeContent extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost/?data=list-quizzes')
+    fetch(BACKEND_URL + '?data=list-quizzes')
     .then( response => response.json())
     .then( (list) => {
       return this.setState({ // populate the state will render the component
@@ -132,7 +132,7 @@ class HomeContent extends Component {
   fetchStatsForUser() {
     if(!this.usernameIsEmpty()) {
       console.log("fetch stats for user '" + this.state.username + "'");
-      fetch('http://localhost/?data=stats-exist&username=' + this.state.username)
+      fetch(BACKEND_URL + '?data=stats-exist&username=' + this.state.username)
       .then( response => response.json())
       .then( ({ result }) => {
         this.setState({

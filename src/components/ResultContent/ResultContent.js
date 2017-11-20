@@ -4,6 +4,7 @@ import './ResultContent.css';
 import AppSubHeader from '../AppSubHeader/AppSubHeader';
 import ResultItem from '../ResultItem/ResultItem';
 import format from '../../utils/DateFormatter';
+import { BACKEND_URL } from '../../utils/constants.js';
 
 class ResultContent extends Component {
   constructor() {
@@ -20,7 +21,7 @@ class ResultContent extends Component {
     const resultId = this.props.match.params.id;
     console.log("results " + resultId);
     
-    fetch('http://localhost/?data=result&id=' + resultId)
+    fetch(BACKEND_URL + '?data=result&id=' + resultId)
     .then( response => response.json())
     .then( ({username, quizId, quizTitle, answers, goodAnswerCounter}) => {
       return this.setState({ // populate the state will render the component

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './StatsContent.css';
 import AppSubHeader from '../AppSubHeader/AppSubHeader';
 import format from '../../utils/DateFormatter';
+import { BACKEND_URL } from '../../utils/constants.js';
 
 class StatsContent extends Component {
   constructor() {
@@ -14,7 +15,7 @@ class StatsContent extends Component {
 
   componentDidMount() {
     console.log("fetching stats");
-    fetch('http://localhost/?data=stats&username=' + this.props.match.params.username)
+    fetch(BACKEND_URL + '?data=stats&username=' + this.props.match.params.username)
     .then( response => response.json())
     .then( (res) => {
       this.setState({
