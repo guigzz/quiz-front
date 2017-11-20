@@ -12,7 +12,14 @@ class StatsContent extends Component {
   }
 
   componentDidMount() {
-    // TODO fetch stats of user
+    console.log("fetching stats");
+    fetch('http://localhost/?data=stats&username=' + this.props.match.params.username)
+    .then( response => response.json())
+    .then( (res) => {
+      this.setState({
+        stats: res
+      });
+    });
   }
   
   render() {
@@ -25,7 +32,19 @@ class StatsContent extends Component {
           this.state.stats !== null ?
           (
             <div className="stats-content">
-              Stats content
+              <ul>
+                {this.state.stats.map((quiz) => {
+                  return (
+                    <li>Quiz {quiz.quizId}: {quiz.quizTitle}
+                      <ul>
+                        {quiz.results.map((result) => {
+                          return <li>at {result.id}, your score : {result.score}</li>
+                        })}
+                      </ul>
+                    </li>
+                  )
+                })}
+              </ul>
             </div>
           )
           :
