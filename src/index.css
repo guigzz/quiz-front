@@ -6,7 +6,9 @@ input,
 select,
 textarea {
   font-family: "Inter UI", "Helvetica", "Arial", sans-serif;
+  color: rgb(100, 100, 100);
 }
+
 body {
   margin: 0;
   padding: 0;

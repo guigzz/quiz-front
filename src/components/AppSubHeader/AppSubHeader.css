@@ -1,7 +1,11 @@
 
 .app-subheader {
-  background-color: rgb(224, 224, 224);
-  color: rgb(43, 43, 43);
-  padding-top: 20px;
-  padding-bottom: 20px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(100, 100, 100);
+  padding-left: 24px;
+  border-bottom: 1px solid #C3D630;
+}
+
+.app-subheader .level-item {
+  height: 50px;
 }

@@ -1,0 +1,24 @@
+.input {
+  border: none;
+  box-shadow: none;
+  border-radius: 0px;
+  border-bottom: 2px solid #c3d630;
+  color: #c3d630;
+  font-weight: bold;
+}
+
+.stats-btn {
+  height: 50px;
+  width: 50px;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  color: #c3d630;
+  border-left: 1px solid #c3d630;
+}
+
+.stats-btn:hover {
+  background: #c3d630;
+  color: rgb(238, 255, 199);
+  border-left: 1px solid #c3d630;
+}

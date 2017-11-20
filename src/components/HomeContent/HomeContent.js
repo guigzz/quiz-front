@@ -67,7 +67,11 @@ class HomeContent extends Component {
               <Link to={`/stats/${this.state.username}`} >
                 <div className="level-right">
                   <div className="level-item">
-                    <button>Stats</button>
+                    <button className="button stats-btn">
+                      <span class="icon is-large">
+                        <i class="fa fa-bar-chart"></i>
+                      </span>
+                    </button>
                   </div>
                 </div>
               </Link>
@@ -75,20 +79,21 @@ class HomeContent extends Component {
               : null
             }
           </AppSubHeader>
-  
-          <div>
-            {this.state.quizzes.map((quiz) => {
-              return (
-                <QuizThumbnail 
-                  key={quiz.id} 
-                  id={quiz.id} 
-                  questions={quiz.questions} 
-                  title={quiz.title} 
-                  disabled={noUsername} 
-                  onClick={this.handleThumbnailClick.bind(this, quiz)} 
-                  />
-              );
-            })}
+          <div className="container">
+            <div className="columns is-multiline">
+              {this.state.quizzes.map((quiz) => {
+                return (
+                  <QuizThumbnail 
+                    key={quiz.id} 
+                    id={quiz.id} 
+                    questions={quiz.questions} 
+                    title={quiz.title} 
+                    disabled={noUsername} 
+                    onClick={this.handleThumbnailClick.bind(this, quiz)} 
+                    />
+                );
+              })}
+            </div>
           </div>
         </div>
       );
