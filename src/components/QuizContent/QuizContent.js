@@ -2,11 +2,17 @@ import React, { Component } from 'react';
 import './QuizContent.css';
 import AppSubHeader from '../AppSubHeader/AppSubHeader';
 import QuizQuestion from '../QuizQuestion/QuizQuestion';
+import Store from '../../utils/Store';
+import { APP_ID } from '../../utils/constants.js';
 
 class QuizContent extends Component {
 
   constructor() {
     super();
+    // get the username from the local storage
+    this.store = new Store(APP_ID);
+    const storeContent = this.store.get();
+    this.username = storeContent.username;
 
     this.state = {
       id: null,
@@ -84,7 +90,7 @@ class QuizContent extends Component {
       // we are at the end of the quiz
       // post answers to the servers
       const postData = {
-        username: this.props.username,
+        username: this.username,
         quizId: this.state.id,
         answers: [
           ...currentAnswers,
@@ -106,7 +112,18 @@ class QuizContent extends Component {
       console.log("answers have been stored under the result ID : " + resultId);
       // redirect to the result page
       this.props.history.replace(`/result/${resultId}`);
+      // if we don't want to keep the username in the HomeContent input field later:
+      this.clearUsername();
     });
+  }
+
+  /**
+   * Clear the username field of the local store,
+   * so when navigating back to HomeContent,
+   * the input filed 'username' is empty
+   */
+  clearUsername() {
+    this.store.clear();
   }
 }
 

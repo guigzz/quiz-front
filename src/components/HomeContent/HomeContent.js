@@ -9,9 +9,13 @@ class HomeContent extends Component {
 
   constructor() {
     super();
+
+    this.store = new Store(APP_ID);
+    const storeContent = this.store.get();
+
     this.state = {
       quizzes: [],
-      username: ""
+      username: storeContent.username
     };
   }
 
@@ -43,7 +47,8 @@ class HomeContent extends Component {
                 id="input-username" 
                 type="text" 
                 className="input"
-                onKeyUp={this.handleUsernameChange.bind(this)} />
+                onChange={this.handleUsernameChange.bind(this)} 
+                value={this.state.username} />
               </div>
             </div>
           </AppSubHeader>
@@ -57,7 +62,7 @@ class HomeContent extends Component {
                   questions={quiz.questions} 
                   title={quiz.title} 
                   disabled={noUsername} 
-                  onClick={this.handleThumbnailClick.bind(this, quiz)}
+                  onClick={this.handleThumbnailClick.bind(this, quiz)} 
                   />
               );
             })}
@@ -86,8 +91,7 @@ class HomeContent extends Component {
     }
     else {
       // save the username in the store
-      const store = new Store(APP_ID);
-      store.set({username: this.state.username});
+      this.store.set({username: this.state.username});
       // start the quiz
       this.props.history.push(`/quiz/${quiz.id}`);
     }
