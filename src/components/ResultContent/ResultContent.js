@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './ResultContent.css';
 import AppSubHeader from '../AppSubHeader/AppSubHeader';
+import ResultItem from '../ResultItem/ResultItem';
 
 class ResultContent extends Component {
   constructor() {
@@ -41,6 +42,18 @@ class ResultContent extends Component {
           </AppSubHeader>
           <h2>Results of {this.state.user} for quiz {this.state.quiz} (submitted: {this.getDateFromTimestamp(this.state.id)})</h2>
           <h3>Score : {this.state.goodCounter}/{this.state.answers.length}</h3>
+          <div>
+            {this.state.answers.map((answer) => {
+              return <ResultItem 
+                key={answer.questionNumber} 
+                questionNumber={answer.questionNumber} 
+                questionText={answer.questionText} 
+                userAnswerNumber={answer.userAnswerNumber} 
+                userAnswerText={answer.userAnswerText} 
+                goodAnswerNumber={answer.goodAnswerNumber}
+                goodAnswerText={answer.goodAnswerText} />
+            })}
+          </div>
           <Link to="/">Home</Link>
         </div>
       );

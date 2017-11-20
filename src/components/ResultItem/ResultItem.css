@@ -1,0 +1,10 @@
+strong {
+  color: inherit;
+}
+
+.result-item.right .result-verdict {
+  color: #58cf34 !important;
+}
+.result-item.wrong .result-verdict {
+  color: #cf3934 !important;
+}
