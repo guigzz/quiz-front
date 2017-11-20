@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './StatsContent.css';
 import AppSubHeader from '../AppSubHeader/AppSubHeader';
 import format from '../../utils/DateFormatter';
@@ -40,7 +41,7 @@ class StatsContent extends Component {
                     <li>Quiz {quiz.quizId}: {quiz.quizTitle}
                       <ul>
                         {quiz.results.map((result) => {
-                          return <li>{format(result.id)}, your score : {result.score}</li>
+                          return <Link to={`/result/${result.id}`}><li>{format(result.id)}, your score : {result.score}</li></Link>
                         })}
                       </ul>
                     </li>
