@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './StatsContent.css';
 import AppSubHeader from '../AppSubHeader/AppSubHeader';
+import StatItem from '../StatItem/StatItem';
 import format from '../../utils/DateFormatter';
 import { BACKEND_URL } from '../../utils/constants.js';
 
@@ -38,13 +39,18 @@ class StatsContent extends Component {
               <ul>
                 {this.state.stats.map((quiz) => {
                   return (
-                    <li>Quiz {quiz.quizId}: {quiz.quizTitle}
-                      <ul>
+                    <div className="stat-categ">
+                      <h1 className="title is-3">Quiz {quiz.quizId}: {quiz.quizTitle}</h1>
+                      <div className="stats-container">
                         {quiz.results.map((result) => {
-                          return <Link to={`/result/${result.id}`}><li>{format(result.id)}, your score : {result.score}</li></Link>
+                          return (
+                            <Link to={`/result/${result.id}`}>
+                              <StatItem result={result.id} date={format(result.id)} score={result.score} />
+                            </Link>
+                          )
                         })}
-                      </ul>
-                    </li>
+                      </div>
+                    </div>
                   )
                 })}
               </ul>
