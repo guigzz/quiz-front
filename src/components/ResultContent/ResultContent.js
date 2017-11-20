@@ -20,11 +20,12 @@ class ResultContent extends Component {
     
     fetch('http://localhost/?data=result&id=' + resultId)
     .then( response => response.json())
-    .then( ({username, quizId, answers, goodAnswerCounter}) => {
+    .then( ({username, quizId, quizTitle, answers, goodAnswerCounter}) => {
       return this.setState({ // populate the state will render the component
         id: resultId,
         user: username,
         quiz: quizId,
+        title: quizTitle,
         goodCounter: goodAnswerCounter,
         answers: answers
       });
@@ -36,7 +37,7 @@ class ResultContent extends Component {
       return (
         <div className="result-content">
           <AppSubHeader>
-            Quiz {this.state.quiz}: TODO : get title of the quiz !!
+            Quiz {this.state.quiz}: {this.state.title}
           </AppSubHeader>
           <h2>Results of {this.state.user} for quiz {this.state.quiz} (submitted: {this.getDateFromTimestamp(this.state.id)})</h2>
           <h3>Score : {this.state.goodCounter}/{this.state.answers.length}</h3>
