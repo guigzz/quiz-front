@@ -1,0 +1,21 @@
+.stat-item .card-header .card-header-title {
+  display: inline;
+  text-align: center;
+}
+
+.stat-item .card-content .content {
+  text-align: center;
+}
+
+.stat-item .card-content {
+  padding-top: 10px;
+}
+
+.stat-item .card-content .content .score-text {
+  font-size: 0.8rem;
+}
+
+.stat-item .card-content .content .score-content {
+  font-size: 2.5rem;
+  letter-spacing: 2px;
+}

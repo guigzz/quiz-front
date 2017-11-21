@@ -1,0 +1,14 @@
+.stats-categ {
+  margin-bottom: 40px;
+}
+
+.stats-categ-title {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .stats-categ-title {
+    font-size: 1.1rem;
+  }
+}

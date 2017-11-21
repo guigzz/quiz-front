@@ -55,6 +55,10 @@ textarea,
   border-right: 1px solid #c3d630;
 }
 
+.bold {
+  font-weight: bold;
+}
+
 html {
   background: #fafafa;
 }
@@ -73,6 +77,10 @@ body {
 
 .card {
   box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1);
+}
+
+.card:not(.disabled):hover {
+  box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 1px 10px rgba(10, 10, 10, 0.1);
 }
 
 .card-header {

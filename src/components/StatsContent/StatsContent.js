@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import './StatsContent.css';
 import AppSubHeader from '../AppSubHeader/AppSubHeader';
 import StatItem from '../StatItem/StatItem';
@@ -30,35 +29,39 @@ class StatsContent extends Component {
     return (
       <div>
         <AppSubHeader>
-          Statistics of {this.props.match.params.username}
+          <div className="level">
+            <div className="level-left">
+              <div className="level-item">
+                <span>Statistics of <span className="primary-text bold">{this.props.match.params.username}</span></span>
+              </div>
+            </div>
+          </div>
         </AppSubHeader>
+        <div className="container">
         {
           this.state.stats !== null ?
           (
             <div className="stats-content">
-              <ul>
-                {this.state.stats.map((quiz) => {
-                  return (
-                    <div className="stat-categ">
-                      <h1 className="title is-3">Quiz {quiz.quizId}: {quiz.quizTitle}</h1>
-                      <div className="stats-container">
-                        {quiz.results.map((result) => {
-                          return (
-                            <Link to={`/result/${result.id}`}>
-                              <StatItem result={result.id} date={format(result.id)} score={result.score} />
-                            </Link>
-                          )
-                        })}
-                      </div>
+              {this.state.stats.map((quiz) => {
+                return (
+                  <div className="stats-categ">
+                    <h1 className="stats-categ-title primary-border-bottom">Quiz {quiz.quizId}: {quiz.quizTitle}</h1>
+                    <div className="stats-categ-content columns is-multiline is-mobile">
+                      {quiz.results.map((result) => {
+                        return (
+                          <StatItem result={result.id} date={format(result.id)} score={result.score} />
+                        )
+                      })}
                     </div>
-                  )
-                })}
-              </ul>
+                  </div>
+                )
+              })}
             </div>
           )
           :
           <h1>Loading statistics...</h1>
         }
+        </div>
       </div>
     );
   }
