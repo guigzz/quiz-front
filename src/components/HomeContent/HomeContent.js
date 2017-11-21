@@ -69,7 +69,7 @@ class HomeContent extends Component {
                 <div className="level-right">
                   <div className="level-item">
                     <Link to={`/stats/${this.state.username}`} >
-                    <button className="button primary-btn stats-btn">
+                    <button title="See your statistics" className="button primary-btn stats-btn">
                       <span class="icon is-large">
                         <i class="fa fa-bar-chart"></i>
                       </span>
