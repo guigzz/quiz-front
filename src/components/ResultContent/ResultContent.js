@@ -14,7 +14,8 @@ class ResultContent extends Component {
       user: null,
       quiz: null,
       goodCounter: null,
-      answers: null
+      answers: null,
+      showAnswers: false
     };
   }
   componentDidMount() {
@@ -40,29 +41,74 @@ class ResultContent extends Component {
       return (
         <div className="result-content">
           <AppSubHeader>
-            Quiz {this.state.quiz}: {this.state.title}
+            <div className="level">
+              <div className="level-left">
+                <div className="level-item">
+                  <span>Results of <span className="primary-text bold">{this.state.user}</span> ({format(this.state.id)})</span>
+                  {/* Quiz {this.state.quiz}: {this.state.title} */}
+                </div>
+              </div>
+            </div>
           </AppSubHeader>
-          <h2>Results of {this.state.user} for quiz {this.state.quiz} (submitted: {format(this.state.id)})</h2>
-          <h3>Score : {this.state.goodCounter}/{this.state.answers.length}</h3>
-          <div>
-            {this.state.answers.map((answer) => {
-              return <ResultItem 
-                key={answer.questionNumber} 
-                questionNumber={answer.questionNumber} 
-                questionText={answer.questionText} 
-                userAnswerNumber={answer.userAnswerNumber} 
-                userAnswerText={answer.userAnswerText} 
-                goodAnswerNumber={answer.goodAnswerNumber}
-                goodAnswerText={answer.goodAnswerText} />
-            })}
+          <div className="container">
+            <div className="columns is-centered">
+              <div className="column is-two-thirds-tablet is-two-thirds-desktop is-half-widescreen is-half-fullhd">
+                <div className="result-card card">
+                  <header className="card-header">
+                    <p className="card-header-title regular-text">
+                      Quiz {this.state.quiz}: {this.state.title}
+                    </p>
+                  </header>
+                  <div className="result-card-content">
+                    <div className="content regular-text">
+                      <div className="content-score">
+                        <span className="score-text">Your score:</span>
+                        <br />
+                        <span className="score-content">{this.state.goodCounter}/{this.state.answers.length}</span>
+                      </div>
+                      <div className="content-show-btn">
+                        <button className="button primary-btn show-detail-btn" onClick={this.handleToggleButtonClick.bind(this)}>
+                          {/* <span class="icon is-large">
+                            <i class="fa fa-eye"></i>
+                          </span> */}
+                          <span>{this.state.showAnswers ? "Hide" : "Show"} answers</span>
+                        </button>
+                      </div>
+                      {this.state.showAnswers 
+                        ? <div className="content-detail">
+                            {this.state.answers.map((answer) => {
+                              return <ResultItem 
+                                key={answer.questionNumber} 
+                                questionNumber={answer.questionNumber} 
+                                questionText={answer.questionText} 
+                                userAnswerNumber={answer.userAnswerNumber} 
+                                userAnswerText={answer.userAnswerText} 
+                                goodAnswerNumber={answer.goodAnswerNumber}
+                                goodAnswerText={answer.goodAnswerText} />
+                            })}
+                          </div>
+                        : null
+                      }
+                    </div>
+                  </div>
+                </div>
+                <Link to="/">Home</Link>
+              </div>
+            </div>
           </div>
-          <Link to="/">Home</Link>
         </div>
       );
     }
     else {
       return <h1>Loading your results...</h1>
     }
+  }
+
+  handleToggleButtonClick(e) {
+    const isVisible = this.state.showAnswers;
+    this.setState({
+      showAnswers: !isVisible
+    });
   }
 }
 

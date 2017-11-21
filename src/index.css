@@ -55,6 +55,10 @@ textarea,
   border-right: 1px solid #c3d630;
 }
 
+.danger-text {
+  color: #d62f2f;
+}
+
 .bold {
   font-weight: bold;
 }

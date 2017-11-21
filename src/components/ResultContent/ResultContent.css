@@ -1,0 +1,36 @@
+.result-content .card-header-title {
+  font-style: normal;
+  font-size: 1.5rem;
+}
+
+.result-content .card .result-card-content {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.result-card-content .content-score {
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.result-card-content .content-score .score-text {
+  font-size: 1rem;
+}
+.result-card-content .content-score .score-content {
+  font-size: 2.5rem;
+}
+
+.result-card-content .content-show-btn {
+  text-align: center;
+}
+
+.result-card-content .content-detail {
+  margin-top: 20px;
+  font-size: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .result-content .card-header-title {
+    font-size: 1.1rem;
+  }
+}
