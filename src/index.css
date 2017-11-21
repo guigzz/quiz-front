@@ -4,12 +4,75 @@ body,
 button,
 input,
 select,
-textarea {
+textarea,
+.card {
   font-family: "Inter UI", "Helvetica", "Arial", sans-serif;
   color: rgb(100, 100, 100);
+}
+
+.primary-text {
+  color: #c3d630;
+}
+
+.primary-fill {
+  background: #c3d630;
+}
+
+.primary-btn {
+  height: 50px;
+  border-radius: 0;
+  color: #c3d630;
+  border: 1px solid #c3d630;
+}
+
+.primary-btn:hover {
+  background: #c3d630;
+  color: #ffffff;
+  border: 1px solid #c3d630;
+}
+
+.primary-borders {
+  border: 1px solid #c3d630;
+}
+
+.primary-border-top {
+  border-top: 1px solid #c3d630;
+}
+
+.primary-border-bottom {
+  border-bottom: 1px solid #c3d630;
+}
+
+.primary-border-left {
+  border-left: 1px solid #c3d630;
+}
+
+.primary-border-right {
+  border-right: 1px solid #c3d630;
+}
+
+html {
+  background: #fafafa;
 }
 
 body {
   margin: 0;
   padding: 0;
 }
+
+@media screen and (max-width: 1023px) {
+  .container {
+    margin-left: 24px;
+    margin-right: 24px;
+  }
+}
+
+.card {
+  box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1);
+}
+
+.card-header {
+  box-shadow: none;
+  border-bottom: 1px solid  #fafafa;
+}
+

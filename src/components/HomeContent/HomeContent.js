@@ -49,32 +49,35 @@ class HomeContent extends Component {
         <div className="home-content">
           <AppSubHeader>
             <div className="level-left">
-              <div className="level-item">
+              {/* <div className="level-item">
                 <label htmlFor="input-username" className=""> Your username: </label>
-              </div>
+              </div> */}
               <div className="level-item">
               <input 
                 id="input-username" 
                 type="text" 
-                className="input"
+                className="input primary-text primary-border-bottom"
                 onChange={this.handleUsernameChange.bind(this)} 
-                value={this.state.username} />
+                value={this.state.username}
+                placeholder="Enter a username..." />
               </div>
             </div>
             {
               this.state.displayStatsButton ?
               (
-              <Link to={`/stats/${this.state.username}`} >
+              
                 <div className="level-right">
                   <div className="level-item">
-                    <button className="button stats-btn">
+                    <Link to={`/stats/${this.state.username}`} >
+                    <button className="button primary-btn stats-btn">
                       <span class="icon is-large">
                         <i class="fa fa-bar-chart"></i>
                       </span>
                     </button>
+                    </Link>
                   </div>
                 </div>
-              </Link>
+              
               )
               : null
             }

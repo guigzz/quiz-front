@@ -10,8 +10,18 @@ class QuizThumbnail extends Component {
         <div 
           className={`${status} quiz-thumbnail card`} 
           onClick={this.props.onClick} >
-          <div>Quiz {this.props.id} - {this.props.questions} questions</div>
-          <div>{this.props.title}</div>
+            <header className="card-header">
+              <p className="card-header-title level is-mobile primary-text">
+                <div class="level-left"><div class="level-item">Quiz {this.props.id}.</div></div>
+                <div class="level-right"><div class="level-item">{this.props.questions} questions</div></div>
+                 
+              </p>
+            </header>
+            <div className="card-content">
+              <div className="content">
+                {this.props.title}
+              </div>
+            </div>
         </div>
       </div>
     );

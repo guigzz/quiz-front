@@ -1,24 +1,21 @@
 .input {
-  border: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
   box-shadow: none;
   border-radius: 0px;
-  border-bottom: 2px solid #c3d630;
-  color: #c3d630;
+  border-width: 2px;
   font-weight: bold;
+  padding-left: 0;
 }
 
 .stats-btn {
-  height: 50px;
   width: 50px;
-  padding: 0;
-  border: none;
-  border-radius: 0;
-  color: #c3d630;
-  border-left: 1px solid #c3d630;
+  border-right: none;
+  border-top: none;
+  border-bottom: none;
 }
 
-.stats-btn:hover {
-  background: #c3d630;
-  color: rgb(238, 255, 199);
-  border-left: 1px solid #c3d630;
+.level.is-mobile .level-right .level-item {
+  margin-right: 0;
 }
