@@ -1,0 +1,10 @@
+.quiz-question .card-header-title {
+  font-style: normal;
+  font-size: 1.5rem;
+}
+
+@media screen and (max-width: 768px) {
+  .quiz-question .card-header-title {
+    font-size: 1.1rem;
+  }
+}

@@ -10,6 +10,10 @@ textarea,
   color: rgb(100, 100, 100);
 }
 
+.regular-text {
+  color: rgb(100, 100, 100);
+}
+
 .primary-text {
   color: #c3d630;
 }

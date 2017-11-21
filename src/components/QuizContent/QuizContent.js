@@ -42,29 +42,47 @@ class QuizContent extends Component {
   render() {
     if( this.state.current === null) {
       // no data fetched yet, wait
-      return <h1>Loading quiz...</h1>; // TODO : put a real nice loading component or animation
+      return (
+        <div className="container">
+          <h1>Loading quiz...</h1>
+        </div>
+        ); // TODO : put a real nice loading component or animation
     }
     if( this.state.current > this.state.questions.length) {
       // this question does not exists, we have finished the quiz
-      return <h1>Loading your results...</h1>; // TODO : put a real nice loading component or animation
+      return (
+        <div className="container">
+          <h1>Loading your results...</h1>
+        </div>
+        ); // TODO : put a real nice loading component or animation
     }
 
     const thisQuestion = this.state.questions.find((question) => question.number === this.state.current )
 
     if(typeof(thisQuestion) === 'undefined') {
-      return <h1>Oops, something went wrong...</h1>; // TODO : put a real nice loading component or animation
+      return (
+        <div className="container">
+          <h1>Oops, something went wrong...</h1>
+        </div>
+        ); // TODO : put a real nice loading component or animation
     }
 
     return (
-      <div>
+      <div className="quiz-content">
         <AppSubHeader>
-          Quiz {this.state.id}: {this.state.title}
+          <div className="level-left">
+            <div className="level-item">
+              {this.state.title !== null ? this.state.title : null}
+            </div>
+          </div>
         </AppSubHeader>
-        <QuizQuestion 
-          number={thisQuestion.number} 
-          text={thisQuestion.text} 
-          choices={thisQuestion.choices} 
-          onQuestionAnswered={(answer) => this.handleQuestionAnswered(answer)} /> {/* get the user choice */} 
+        <div className="container">
+          <QuizQuestion 
+            number={thisQuestion.number} 
+            text={thisQuestion.text} 
+            choices={thisQuestion.choices} 
+            onQuestionAnswered={(answer) => this.handleQuestionAnswered(answer)} /> {/* get the user choice */} 
+        </div>
       </div>
     );
   }

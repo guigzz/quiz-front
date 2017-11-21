@@ -1,3 +1,19 @@
-.quiz-question-choice {
-  display: block;
+.level.quiz-question-choice {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  cursor: pointer;
+  margin: 0;
+}
+
+.level.quiz-question-choice:hover {
+  background: #fafafa;
+}
+
+.level.quiz-question-choice:not(:last-child) {
+  border-bottom: 1px solid  #fafafa;
+}
+
+.level .level-left .level-item.choice-number-container {
+  width: 60px;
+  margin: 0;
 }
