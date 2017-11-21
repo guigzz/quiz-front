@@ -130,8 +130,8 @@ class QuizContent extends Component {
       console.log("answers have been stored under the result ID : " + resultId);
       // redirect to the result page
       this.props.history.replace(`/result/${resultId}`);
-      // if we don't want to keep the username in the HomeContent input field later:
-      this.clearUsername();
+      // if we don't want to keep the username in the HomeContent input field later, un-comment this:
+      //this.clearUsername();
     });
   }
 
