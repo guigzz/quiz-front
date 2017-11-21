@@ -109,7 +109,8 @@ class HomeContent extends Component {
 
   handleUsernameChange(e) {
     this.setState({
-      username: e.target.value
+      username: e.target.value,
+      displayStatsButton: false
     });
 
     // handle fetching of stats data
