@@ -1,29 +1,35 @@
 @import 'styles/theme';
 
-.home-content .input {
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  border-bottom: 2px solid $primary-color;
-  box-shadow: none;
-  border-radius: 0px;
-  font-weight: bold;
-  padding-left: 0;
-  color: $primary-color;
-}
+.home-content {
+  .input {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid $primary-color;
+    box-shadow: none;
+    border-radius: 0px;
+    font-weight: bold;
+    padding-left: 0;
+    color: $primary-color;
+  }
 
-.stats-btn {
-  width: 50px;
-  border-right: none;
-  border-top: none;
-  border-bottom: none;
+  .stats-btn {
+    width: 50px;
+    border-right: none;
+    border-top: none;
+    border-bottom: none;
+  
+    box-shadow: 0 0 0 $primary-color-op-80;
+    animation: pulse 1.5s 3;
+  }
 
-  box-shadow: 0 0 0 $primary-color-op-80;
-  animation: pulse 1.5s 3;
-}
-
-.level.is-mobile .level-right .level-item {
-  margin-right: 0;
+  .level.is-mobile {
+    .level-right {
+      .level-item {
+        margin-right: 0;
+      }
+    }
+  }
 }
 
 @-webkit-keyframes pulse {

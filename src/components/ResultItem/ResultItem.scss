@@ -4,7 +4,13 @@
   padding-top: 10px;
   padding-bottom: 10px;
 
+  &:not(:last-child) {
+    border-bottom: 1px solid  $light-color;
+  }
+
   &.right {
+    background: $light-success-color;
+
     .result-item-user-icon-container .icon,
     .result-item-user-answer-container p {
       color: $success-color;
@@ -12,43 +18,40 @@
   }
 
   &.wrong {
-    .result-item-user-icon-container .icon,
-    .result-item-user-answer-container p {
+    background: $light-danger-color;
+
+    .result-item-user-icon-container .icon {
       color: $danger-color;
     }
+
+    .result-item-user-answer-container p {
+      color: $danger-color;
+      text-decoration: line-through;
+    }
   }
-}
 
-.result-item:not(:last-child) {
-  border-bottom: 1px solid  $light-color;
-}
+  .columns {
+    margin: 0;
+    padding: 0;
 
-.result-item.wrong {
-  background: $light-danger-color;
-}
+    .column {
+      margin: 0;
+      padding: 0;
+    }
 
-.result-item.right {
-  background: $light-success-color;
-}
+    .result-item-question, .result-item-correct {
+      padding-left: 10px;
+      padding-right: 10px;
+      
+      span {
+        font-weight: bold;
+      }
+    }
 
-.result-item .columns, .result-item .column {
-  margin: 0;
-  padding: 0;
-}
-
-.result-item .result-item-question, .result-item .result-item-correct {
-  padding-left: 10px;
-  padding-right: 10px;
-  
-  span {
-    font-weight: bold;
+    .result-item-user-icon-container {
+      .icon {
+        width: 50px;
+      }
+    }
   }
-}
-
-.result-item-user-icon-container .icon {
-  width: 50px;
-}
-
-.result-item.wrong .result-item-user-answer-container p {
-  text-decoration: line-through;
 }

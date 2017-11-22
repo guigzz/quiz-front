@@ -2,28 +2,32 @@
 
 .quiz-thumbnail {
   cursor: pointer;
-}
 
-.quiz-thumbnail.disabled {
-  cursor: default;
-  color : $light-grey;
-}
+  &.disabled {
+    cursor: default;
+    color : $light-grey;
+  }
 
+  .card-header {
+    .card-header-title {
+      font-weight: normal;
+      font-style: italic;
+      font-size: 0.9rem;
+      color: $primary-color;
+    }
+  }
 
-
-.card-header-title {
-  font-weight: normal;
-  font-style: italic;
-  font-size: 0.9rem;
-  color: $primary-color;
-}
-
-.card-content .content {
-  font-size: 1.8rem;
+  .card-content {
+    .content {
+      font-size: 1.8rem;
+    }
+  }
 }
 
 @media screen and (max-width: 768px) {
-  .card-content .content {
-    font-size: 1.2rem;
+  .quiz-thumbnail .card-content {
+    .content {
+      font-size: 1.8rem;
+    }
   }
 }

@@ -41,7 +41,7 @@ class StatsContent extends Component {
         {
           this.state.stats !== null ?
           (
-            <div className="stats-content">
+            <div>
               {this.state.stats.map((quiz) => {
                 return (
                   <div className="stats-categ">

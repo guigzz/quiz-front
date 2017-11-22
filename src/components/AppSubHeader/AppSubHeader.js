@@ -4,7 +4,7 @@ import './AppSubHeader.css';
 class AppSubHeader extends Component {
   render() {
     return (
-      <div className="level is-mobile app-subheader">
+      <div className="app-subheader level is-mobile">
         {this.props.children}
       </div>
     );
