@@ -6,7 +6,7 @@ class QuizThumbnail extends Component {
   render() {
     const status = this.props.disabled ? "disabled" : "";
     return (
-      <div className="column is-half-tablet is-half-desktop is-one-third-widescreen is-one-quarter-fullhd">
+      <div className="column is-half-tablet is-half-desktop is-one-third-widescreen is-one-third-fullhd">
         <div 
           className={`${status} quiz-thumbnail card`} 
           onClick={this.props.onClick} >
