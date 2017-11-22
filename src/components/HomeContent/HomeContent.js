@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import './HomeContent.css';
 import AppSubHeader from '../AppSubHeader/AppSubHeader';
 import StatsButton from '../StatsButton/StatsButton';
