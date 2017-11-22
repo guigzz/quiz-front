@@ -19,8 +19,9 @@ class StatsContent extends Component {
     fetch(BACKEND_URL + '?data=stats&username=' + this.props.match.params.username)
     .then( response => response.json())
     .then( (res) => {
+      const sortedRes = res.sort((a, b) => a.quizId - b.quizId);
       this.setState({
-        stats: res
+        stats: sortedRes
       });
     });
   }
@@ -47,7 +48,7 @@ class StatsContent extends Component {
                   <div className="stats-categ">
                     <h1 className="stats-categ-title">Quiz {quiz.quizId}: {quiz.quizTitle}</h1>
                     <div className="stats-categ-content columns is-multiline is-mobile">
-                      {quiz.results.map((result) => {
+                      {quiz.results.reverse().map((result) => {
                         return (
                           <StatItem result={result.id} date={format(result.id)} score={result.score} />
                         )
