@@ -5,6 +5,7 @@
   background: linear-gradient(to right, $gradient-start, $gradient-stop);
 
   .app-header-title {
+    display: inline-block;
     color: $app-title-color;
     font-size: 1.5rem;
     /* text-transform: uppercase; */
