@@ -6,4 +6,26 @@
       font-size: 1.2rem;
     }
   }
+
+  .container {
+    .swipe-enter {
+      opacity: 0.01;
+      transform: translateX(100vw);
+    }
+    
+    .swipe-enter.swipe-enter-active {
+      transform: translateX(0);
+      opacity: 1;
+      transition: all 400ms ease-in;
+    }
+    
+    .swipe-exit {
+      opacity: 1;
+    }
+    
+    .swipe-exit.swipe-exit-active {
+      opacity: 0.01;
+      transition: all 1ms ease-in;
+    }
+  }
 }

@@ -23,8 +23,8 @@ class QuizQuestion extends Component {
                         questionNumber={this.props.number} 
                         choiceId={choice.id} 
                         choiceText={choice.text}
-                        onChoiceSelected={e => this.props.onQuestionAnswered(choice.id)} /> // passing the choice.id up to the parent
-                    )
+                        onChoiceSelected={e => this.props.onQuestionAnswered(choice.id)} />
+                    );
                   })}
                 </div>
               </div>

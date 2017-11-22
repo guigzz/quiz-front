@@ -1,9 +1,20 @@
 import React, { Component } from 'react';
+import { CSSTransition, TransitionGroup, CSSTransitionGroup } from 'react-transition-group'
 import './QuizContent.css';
 import AppSubHeader from '../AppSubHeader/AppSubHeader';
 import QuizQuestion from '../QuizQuestion/QuizQuestion';
 import Store from '../../utils/Store';
 import { APP_ID, BACKEND_URL } from '../../utils/constants.js';
+
+const Anim = ({ children, ...props }) => (
+  <CSSTransition
+    {...props}
+    timeout={{ enter: 400, exit: 1 }}
+    classNames="swipe"
+  >
+    {children}
+  </CSSTransition>
+);
 
 class QuizContent extends Component {
 
@@ -30,7 +41,7 @@ class QuizContent extends Component {
     fetch(BACKEND_URL + '?data=quiz&id=' + quizId)
     .then( response => response.json())
     .then( ({id, title, questions}) => {
-      return this.setState({ // populate the state will render the component
+      return this.setState({
         id: id, 
         title: title,
         questions: questions,
@@ -77,11 +88,23 @@ class QuizContent extends Component {
           </div>
         </AppSubHeader>
         <div className="container">
-          <QuizQuestion 
-            number={thisQuestion.number} 
-            text={thisQuestion.text} 
-            choices={thisQuestion.choices} 
-            onQuestionAnswered={(answer) => this.handleQuestionAnswered(answer)} /> {/* get the user choice */} 
+          
+          {/* <CSSTransitionGroup 
+            transitionName="swipe" 
+            transitionEnterTimeout={1000}
+            transitionLeaveTimeout={1000}
+            transitionAppear={true} > */}
+            {/* <div key={thisQuestion.number} style={{width: "100px", height: "100px", background: "red"}}></div> */}
+            <TransitionGroup className='bla'>
+              <Anim key={thisQuestion.number}>
+                <QuizQuestion 
+                  number={thisQuestion.number} 
+                  text={thisQuestion.text} 
+                  choices={thisQuestion.choices} 
+                  onQuestionAnswered={(answer) => this.handleQuestionAnswered(answer)} />
+              </Anim>
+            </TransitionGroup>
+          {/* </CSSTransitionGroup> */}
         </div>
       </div>
     );
