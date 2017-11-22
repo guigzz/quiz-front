@@ -24,6 +24,19 @@ textarea,
   border: 1px solid $primary-color;
 }
 
+.secondary-btn {
+  height: 50px;
+  border-radius: 0;
+  color: $text-color;
+  border: 1px solid $text-color;
+}
+
+.secondary-btn:hover {
+  background: $text-color;
+  color: $light-color;
+  border: 1px solid $text-color;
+}
+
 html {
   background: $main-bg-color;
 }

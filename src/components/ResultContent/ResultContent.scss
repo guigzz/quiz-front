@@ -35,8 +35,13 @@
           }
         }
 
-        .content-show-btn {
+        .content-show-btn, .content-retry-btn, .content-home-btn {
           text-align: center;
+          margin-bottom: 10px;
+
+           button {
+             min-width: 130px;
+           }
         }
 
         .content-detail {

@@ -66,12 +66,32 @@ class ResultContent extends Component {
                         <br />
                         <span className="score-content">{this.state.goodCounter}/{this.state.answers.length}</span>
                       </div>
+                      <div className="content-home-btn">
+                        <Link to="/">
+                          <button className="button primary-btn show-detail-btn" onClick={this.handleToggleButtonClick.bind(this)}>
+                            <span class="icon is-large">
+                              <i class="fa fa-home"></i>
+                            </span>
+                            <span>Home</span>
+                          </button>
+                        </Link>
+                      </div>
+                      <div className="content-retry-btn">
+                        <Link to={`/quiz/${this.state.quiz}`}>
+                          <button className="button primary-btn show-detail-btn" onClick={this.handleToggleButtonClick.bind(this)}>
+                            <span class="icon is-large">
+                              <i class="fa fa-repeat"></i>
+                            </span>
+                            <span>Retry</span>
+                          </button>
+                        </Link>
+                      </div>
                       <div className="content-show-btn">
-                        <button className="button primary-btn show-detail-btn" onClick={this.handleToggleButtonClick.bind(this)}>
-                          {/* <span class="icon is-large">
-                            <i class="fa fa-eye"></i>
-                          </span> */}
-                          <span>{this.state.showAnswers ? "Hide" : "Show"} answers</span>
+                        <button className="button secondary-btn show-detail-btn" onClick={this.handleToggleButtonClick.bind(this)}>
+                          <span class="icon is-large">
+                            {this.state.showAnswers ? <i class="fa fa-eye-slash"></i> : <i class="fa fa-eye"></i>}
+                          </span>
+                          <span>answers</span>
                         </button>
                       </div>
                       {this.state.showAnswers 
