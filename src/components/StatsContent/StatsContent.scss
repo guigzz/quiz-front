@@ -1,9 +1,14 @@
 @import 'styles/theme';
 
 .stats-content {
-  .username {
-    color: $primary-color;
-    font-weight: bold;
+  .app-subheader {
+    .level-item {
+      font-size: 1.2rem;
+      .username {
+        color: $primary-color;
+        font-weight: bold;
+      }
+    }
   }
 
   .container {
