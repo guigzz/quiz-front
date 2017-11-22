@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './HomeContent.css';
 import AppSubHeader from '../AppSubHeader/AppSubHeader';
+import StatsButton from '../StatsButton/StatsButton';
 import QuizThumbnail from '../QuizThumbnail/QuizThumbnail';
 import Store from '../../utils/Store'; // local storage helper class
 import { APP_ID, STATS_FETCH_DELAY, BACKEND_URL } from '../../utils/constants';
@@ -68,13 +69,7 @@ class HomeContent extends Component {
               
                 <div className="level-right">
                   <div className="level-item">
-                    <Link to={`/stats/${this.state.username}`} >
-                    <button title="See your statistics" className="button primary-btn stats-btn">
-                      <span class="icon is-large">
-                        <i class="fa fa-bar-chart"></i>
-                      </span>
-                    </button>
-                    </Link>
+                    <StatsButton onButtonClicked={this.handleStatsButtonClick.bind(this)}/>
                   </div>
                 </div>
               
@@ -132,6 +127,15 @@ class HomeContent extends Component {
       this.props.history.push(`/quiz/${quiz.id}`);
     }
 
+  }
+
+  handleStatsButtonClick(e) {
+    if(!this.usernameIsEmpty()) {
+      // save the username in the store
+      this.store.set({username: this.state.username});
+      // go to stats
+      this.props.history.push(`/stats/${this.state.username}`);
+    }
   }
 
   /**

@@ -13,47 +13,11 @@
     color: $primary-color;
   }
 
-  .stats-btn {
-    width: 50px;
-    border-right: none;
-    border-top: none;
-    border-bottom: none;
-  
-    box-shadow: 0 0 0 $primary-color-op-80;
-    animation: pulse 1.5s 3;
-  }
-
   .level.is-mobile {
     .level-right {
       .level-item {
         margin-right: 0;
       }
     }
-  }
-}
-
-@-webkit-keyframes pulse {
-  0% {
-    -webkit-box-shadow: 0 0 0 0 $primary-color-op-80;
-  }
-  70% {
-      -webkit-box-shadow: 0 0 0 40px $primary-color-op-0;
-  }
-  100% {
-      -webkit-box-shadow: 0 0 0 0 $primary-color-op-0;
-  }
-}
-@keyframes pulse {
-  0% {
-    -moz-box-shadow: 0 0 0 0 $primary-color-op-80;
-    box-shadow: 0 0 0 0 $primary-color-op-80;
-  }
-  70% {
-      -moz-box-shadow: 0 0 0 40px $primary-color-op-0;
-      box-shadow: 0 0 0 40px $primary-color-op-0;
-  }
-  100% {
-      -moz-box-shadow: 0 0 0 0 $primary-color-op-0;
-      box-shadow: 0 0 0 0 $primary-color-op-0;
   }
 }
