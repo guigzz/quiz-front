@@ -13,7 +13,7 @@ class QuizQuestionChoice extends Component {
     render() {
       return (
         <div 
-          className="level quiz-question-choice" 
+          className="level is-mobile quiz-question-choice" 
           id={`choice-${this.props.choiceId}`} 
           onClick={this.props.onChoiceSelected} 
           onMouseEnter={this.handleMouseEnter.bind(this)} 
