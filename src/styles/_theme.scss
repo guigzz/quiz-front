@@ -1,13 +1,19 @@
 /* main background color of the app */
 $main-bg-color: #fafafa;
-/* Top banner */
-$gradient-start: #A1B601;
-$gradient-stop: #D6E749;
-$app-title-color: lighten($gradient-stop, 30%);
+
 /* Primary color */
-$primary-color: #c3d630;
-$primary-color-op-80: rgba(195, 214, 48, 0.8);
-$primary-color-op-0: rgba(195, 214, 48, 0);
+/* green-ish #86d12f */
+/* blue-ish #308bd6 */
+/* red-ish #d45248 */
+$primary-color: #308bd6;
+$primary-color-op-80: rgba($primary-color, 0.8);
+$primary-color-op-0: rgba($primary-color, 0);
+
+/* Top banner */
+$gradient-start: lighten(adjust-hue($primary-color, 25%), 10%);
+$gradient-stop: lighten(saturate($primary-color, 25%), 10%);
+$app-title-color: lighten($gradient-stop, 30%);
+
 /* text color */
 $text-color: rgb(100, 100, 100);
 /* success color */
