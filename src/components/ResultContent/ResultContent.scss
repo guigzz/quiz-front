@@ -1,11 +1,24 @@
+@import 'styles/theme';
+
+.result-content {
+  .username {
+    color: $primary-color;
+    font-weight: bold;
+  }
+}
 .result-content .card-header-title {
   font-style: normal;
   font-size: 1.5rem;
+  color: $text-color;
 }
 
 .result-content .card .result-card-content {
   padding-top: 20px;
   padding-bottom: 20px;
+}
+
+.result-card-content .content {
+  color: $text-color;
 }
 
 .result-card-content .content-score {

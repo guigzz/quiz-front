@@ -1,10 +1,14 @@
+@import 'styles/theme';
+
 .stat-item .card-header .card-header-title {
   display: inline;
   text-align: center;
+  color: $primary-color;
 }
 
 .stat-item .card-content .content {
   text-align: center;
+  color: $text-color;
 }
 
 .stat-item .card-content {

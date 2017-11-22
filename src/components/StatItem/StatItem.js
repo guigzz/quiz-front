@@ -9,10 +9,10 @@ class StatItem extends Component {
         <Link to={`/result/${this.props.result}`} >
           <div className="stat-item card">
             <header className="card-header">
-              <p className="card-header-title primary-text">{this.props.date}</p>
+              <p className="card-header-title">{this.props.date}</p>
             </header>
             <div className="card-content">
-              <div className="content regular-text">
+              <div className="content">
                 <span className="score-text">Score:</span>
                 <br />
                 <span className="score-content">{this.props.score}</span>

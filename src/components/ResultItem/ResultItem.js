@@ -9,26 +9,26 @@ class ResultItem extends Component {
       <div className={`result-item ${resultClass}`}>
         <div className="columns">
           <div className="column result-item-question">
-            <p>Question {this.props.questionNumber}. <span className="bold">{this.props.questionText}</span></p>
+            <p>Question {this.props.questionNumber}. <span>{this.props.questionText}</span></p>
           </div>
         </div>
         <div className="columns is-mobile result-item-user">
           <div className="column is-narrow result-item-user-icon-container">
             {goodAnswer 
-              ? <span className="icon primary-text"><i className="fa fa-check"></i></span>
-              : <span className="icon danger-text"><i className="fa fa-times"></i></span>
+              ? <span className="icon"><i className="fa fa-check"></i></span>
+              : <span className="icon"><i className="fa fa-times"></i></span>
             }
             
           </div>
           <div className="column result-item-user-answer-container">
-            <p className={goodAnswer ? "primary-text" : "danger-text"}>{this.props.userAnswerNumber.toUpperCase()}. {this.props.userAnswerText}</p>
+            <p>{this.props.userAnswerNumber.toUpperCase()}. {this.props.userAnswerText}</p>
           </div>
         </div>
         {!goodAnswer 
           ? (
             <div className="columns">
               <div className="column result-item-correct">
-                <p>The answer was: <span className="bold">{this.props.goodAnswerNumber.toUpperCase()}. {this.props.goodAnswerText}</span></p>
+                <p>The answer was: <span>{this.props.goodAnswerNumber.toUpperCase()}. {this.props.goodAnswerText}</span></p>
               </div>
             </div>
           )

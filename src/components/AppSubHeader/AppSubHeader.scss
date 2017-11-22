@@ -1,8 +1,10 @@
+@import 'styles/theme';
 
 .app-subheader {
-  background-color: rgb(255, 255, 255);
-  color: rgb(100, 100, 100);
+  background-color: $light-color;
+  color: $text-color;
   padding-left: 24px;
+  border-bottom: 1px solid $primary-color;
 }
 
 .app-subheader .level-item {

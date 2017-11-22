@@ -10,7 +10,7 @@ class QuizQuestion extends Component {
           <div className="column is-two-thirds-tablet is-two-thirds-desktop is-half-widescreen is-half-fullhd">
             <div className="quiz-question card">
               <header className="card-header">
-                <p className="card-header-title regular-text">
+                <p className="card-header-title">
                 {this.props.number}. {this.props.text}
                 </p>
               </header>

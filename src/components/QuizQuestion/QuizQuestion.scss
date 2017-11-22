@@ -1,6 +1,9 @@
+@import 'styles/theme';
+
 .quiz-question .card-header-title {
   font-style: normal;
   font-size: 1.5rem;
+  color: $text-color;
 }
 
 @media screen and (max-width: 768px) {

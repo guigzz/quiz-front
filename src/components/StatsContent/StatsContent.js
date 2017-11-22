@@ -27,12 +27,12 @@ class StatsContent extends Component {
   
   render() {
     return (
-      <div>
+      <div className="stats-content">
         <AppSubHeader>
           <div className="level">
             <div className="level-left">
               <div className="level-item">
-                <span>Statistics of <span className="primary-text bold">{this.props.match.params.username}</span></span>
+                <span>Statistics of <span className="username">{this.props.match.params.username}</span></span>
               </div>
             </div>
           </div>
@@ -45,7 +45,7 @@ class StatsContent extends Component {
               {this.state.stats.map((quiz) => {
                 return (
                   <div className="stats-categ">
-                    <h1 className="stats-categ-title primary-border-bottom">Quiz {quiz.quizId}: {quiz.quizTitle}</h1>
+                    <h1 className="stats-categ-title">Quiz {quiz.quizId}: {quiz.quizTitle}</h1>
                     <div className="stats-categ-content columns is-multiline is-mobile">
                       {quiz.results.map((result) => {
                         return (

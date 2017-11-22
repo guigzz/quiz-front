@@ -56,7 +56,7 @@ class HomeContent extends Component {
               <input 
                 id="input-username" 
                 type="text" 
-                className="input primary-text primary-border-bottom"
+                className="input"
                 onChange={this.handleUsernameChange.bind(this)} 
                 value={this.state.username}
                 placeholder="Enter a username..." />

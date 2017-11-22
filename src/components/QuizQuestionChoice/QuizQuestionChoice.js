@@ -21,7 +21,7 @@ class QuizQuestionChoice extends Component {
           <div className="level-left">
             <div className="level-item choice-number-container">
               {this.state.isMouseOver 
-                ? <span className="icon primary-text"><i className="fa fa-check-circle"></i></span>
+                ? <span className="icon"><i className="fa fa-check-circle"></i></span>
                 : <span className="choice-number">{this.props.choiceId.toUpperCase()}.</span>
               }
             </div>

@@ -44,7 +44,7 @@ class ResultContent extends Component {
             <div className="level">
               <div className="level-left">
                 <div className="level-item">
-                  <span>Results of <span className="primary-text bold">{this.state.user}</span> ({format(this.state.id)})</span>
+                  <span>Results of <span className="username">{this.state.user}</span> ({format(this.state.id)})</span>
                   {/* Quiz {this.state.quiz}: {this.state.title} */}
                 </div>
               </div>
@@ -55,12 +55,12 @@ class ResultContent extends Component {
               <div className="column is-two-thirds-tablet is-two-thirds-desktop is-half-widescreen is-half-fullhd">
                 <div className="result-card card">
                   <header className="card-header">
-                    <p className="card-header-title regular-text">
+                    <p className="card-header-title">
                       Quiz {this.state.quiz}: {this.state.title}
                     </p>
                   </header>
                   <div className="result-card-content">
-                    <div className="content regular-text">
+                    <div className="content">
                       <div className="content-score">
                         <span className="score-text">Your score:</span>
                         <br />

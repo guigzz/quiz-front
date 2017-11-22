@@ -1,7 +1,24 @@
+/* main background color of the app */
+$main-bg-color: #fafafa;
 /* Top banner */
 $gradient-start: #A1B601;
 $gradient-stop: #D6E749;
 $app-title-color: lighten($gradient-stop, 30%);
-
 /* Primary color */
 $primary-color: #c3d630;
+$primary-color-op-80: rgba(195, 214, 48, 0.8);
+$primary-color-op-0: rgba(195, 214, 48, 0);
+/* text color */
+$text-color: rgb(100, 100, 100);
+/* success color */
+$success-color: #c3d630;
+$light-success-color: #e8ffdf;
+/* danger color */
+$danger-color: #d62f2f;
+$light-danger-color: #ffd7d7;
+/* really dark grey */
+$dark-grey: rgba(10, 10, 10, 0.1);
+/* light grey (for disabled content) */
+$light-grey: #cacaca;
+
+$light-color : #ffffff;

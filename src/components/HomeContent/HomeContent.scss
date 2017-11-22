@@ -1,12 +1,15 @@
-.input {
+@import 'styles/theme';
+
+.home-content .input {
   border-top: none;
   border-left: none;
   border-right: none;
+  border-bottom: 2px solid $primary-color;
   box-shadow: none;
   border-radius: 0px;
-  border-width: 2px;
   font-weight: bold;
   padding-left: 0;
+  color: $primary-color;
 }
 
 .stats-btn {
@@ -15,7 +18,7 @@
   border-top: none;
   border-bottom: none;
 
-  box-shadow: 0 0 0 rgba(195, 214, 48, 0.8);
+  box-shadow: 0 0 0 $primary-color-op-80;
   animation: pulse 1.5s 3;
 }
 
@@ -25,26 +28,26 @@
 
 @-webkit-keyframes pulse {
   0% {
-    -webkit-box-shadow: 0 0 0 0 rgba(195, 214, 48, 0.8);
+    -webkit-box-shadow: 0 0 0 0 $primary-color-op-80;
   }
   70% {
-      -webkit-box-shadow: 0 0 0 40px rgba(195, 214, 48, 0);
+      -webkit-box-shadow: 0 0 0 40px $primary-color-op-0;
   }
   100% {
-      -webkit-box-shadow: 0 0 0 0 rgba(195, 214, 48, 0);
+      -webkit-box-shadow: 0 0 0 0 $primary-color-op-0;
   }
 }
 @keyframes pulse {
   0% {
-    -moz-box-shadow: 0 0 0 0 rgba(195, 214, 48, 0.8);
-    box-shadow: 0 0 0 0 rgba(195, 214, 48, 0.8);
+    -moz-box-shadow: 0 0 0 0 $primary-color-op-80;
+    box-shadow: 0 0 0 0 $primary-color-op-80;
   }
   70% {
-      -moz-box-shadow: 0 0 0 40px rgba(195, 214, 48, 0);
-      box-shadow: 0 0 0 40px rgba(195, 214, 48, 0);
+      -moz-box-shadow: 0 0 0 40px $primary-color-op-0;
+      box-shadow: 0 0 0 40px $primary-color-op-0;
   }
   100% {
-      -moz-box-shadow: 0 0 0 0 rgba(195, 214, 48, 0);
-      box-shadow: 0 0 0 0 rgba(195, 214, 48, 0);
+      -moz-box-shadow: 0 0 0 0 $primary-color-op-0;
+      box-shadow: 0 0 0 0 $primary-color-op-0;
   }
 }
