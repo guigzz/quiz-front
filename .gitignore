@@ -19,3 +19,7 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# css files, as they are generated from sass
+src/index.css
+src/components/**/*.css
