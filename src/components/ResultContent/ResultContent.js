@@ -68,7 +68,10 @@ class ResultContent extends Component {
                       </div>
                       <div className="content-home-btn">
                         <Link to="/">
-                          <button className="button primary-btn show-detail-btn" onClick={this.handleToggleButtonClick.bind(this)}>
+                          <button 
+                            className="button primary-btn" 
+                            title="Go to the homepage" 
+                            onClick={this.handleToggleButtonClick.bind(this)}>
                             <span class="icon is-large">
                               <i class="fa fa-home"></i>
                             </span>
@@ -78,7 +81,10 @@ class ResultContent extends Component {
                       </div>
                       <div className="content-retry-btn">
                         <Link to={`/quiz/${this.state.quiz}`}>
-                          <button className="button primary-btn show-detail-btn" onClick={this.handleToggleButtonClick.bind(this)}>
+                          <button 
+                            className="button primary-btn" 
+                            title="Try this quiz again" 
+                            onClick={this.handleToggleButtonClick.bind(this)}>
                             <span class="icon is-large">
                               <i class="fa fa-repeat"></i>
                             </span>
@@ -87,7 +93,10 @@ class ResultContent extends Component {
                         </Link>
                       </div>
                       <div className="content-show-btn">
-                        <button className="button secondary-btn show-detail-btn" onClick={this.handleToggleButtonClick.bind(this)}>
+                        <button 
+                          className="button secondary-btn show-detail-btn" 
+                          title={this.state.showAnswers ? "Hide answers" : "Show answers"} 
+                          onClick={this.handleToggleButtonClick.bind(this)} >
                           <span class="icon is-large">
                             {this.state.showAnswers ? <i class="fa fa-eye-slash"></i> : <i class="fa fa-eye"></i>}
                           </span>
