@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './ResultContent.css';
 import AppSubHeader from '../AppSubHeader/AppSubHeader';
 import ResultItem from '../ResultItem/ResultItem';
+import Loader from '../Loader/Loader';
 import format from '../../utils/DateFormatter';
 import { BACKEND_URL } from '../../utils/constants.js';
 
@@ -128,7 +129,11 @@ class ResultContent extends Component {
       );
     }
     else {
-      return <h1>Loading your results...</h1>
+      return (
+        <div className="container">
+          <Loader text="Loading your results..."/>
+        </div>
+      )
     }
   }
 

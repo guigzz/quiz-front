@@ -3,6 +3,7 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import './QuizContent.css';
 import AppSubHeader from '../AppSubHeader/AppSubHeader';
 import QuizQuestion from '../QuizQuestion/QuizQuestion';
+import Loader from '../Loader/Loader';
 import Store from '../../utils/Store';
 import { APP_ID, BACKEND_URL } from '../../utils/constants.js';
 
@@ -37,7 +38,7 @@ class QuizContent extends Component {
   componentDidMount() {
     const quizId = this.props.match.params.id;
     console.log("will fetch quiz " + quizId);
-    
+
     fetch(BACKEND_URL + '?data=quiz&id=' + quizId)
     .then( response => response.json())
     .then( ({id, title, questions}) => {
@@ -55,17 +56,17 @@ class QuizContent extends Component {
       // no data fetched yet, wait
       return (
         <div className="container">
-          <h1>Loading quiz...</h1>
+          <Loader text="Loading quiz..."/>
         </div>
-        ); // TODO : put a real nice loading component or animation
+        );
     }
     if( this.state.current > this.state.questions.length) {
       // this question does not exists, we have finished the quiz
       return (
         <div className="container">
-          <h1>Loading your results...</h1>
+          <Loader text="Loading your results..."/>
         </div>
-        ); // TODO : put a real nice loading component or animation
+        );
     }
 
     const thisQuestion = this.state.questions.find((question) => question.number === this.state.current )

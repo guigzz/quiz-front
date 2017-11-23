@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './StatsContent.css';
 import AppSubHeader from '../AppSubHeader/AppSubHeader';
 import StatItem from '../StatItem/StatItem';
+import Loader from '../Loader/Loader';
 import format from '../../utils/DateFormatter';
 import { BACKEND_URL } from '../../utils/constants.js';
 
@@ -60,7 +61,11 @@ class StatsContent extends Component {
             </div>
           )
           :
-          <h1>Loading statistics...</h1>
+          (
+            <div className="container">
+              <Loader text="Loading statistics..."/>
+            </div>
+          )
         }
         </div>
       </div>

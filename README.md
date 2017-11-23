@@ -18,7 +18,6 @@ Fonctionnement
 TODO
 ===
 
-- Implémenter des composants plus élaborés pour les chargements de pages (et pas simplement un texte 'Loading...')
 - Mettre un timeout sur les requêtes serveur, et considérer les requêtes comme des échecs au-delà (implementer un composant d'erreur générique)
 - Gérer l'accessibilité (claviers et e-readers, focus, etc...)
 - Tester sur Edge et IE (actuellement testé uniquement sur Firefox, Chrome et Opera)

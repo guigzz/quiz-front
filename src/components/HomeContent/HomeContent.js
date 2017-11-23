@@ -3,6 +3,7 @@ import './HomeContent.css';
 import AppSubHeader from '../AppSubHeader/AppSubHeader';
 import StatsButton from '../StatsButton/StatsButton';
 import QuizThumbnail from '../QuizThumbnail/QuizThumbnail';
+import Loader from '../Loader/Loader';
 import Store from '../../utils/Store'; // local storage helper class
 import { APP_ID, STATS_FETCH_DELAY, BACKEND_URL } from '../../utils/constants';
 
@@ -32,6 +33,20 @@ class HomeContent extends Component {
       });
     });
 
+    // if want to see the loader in action,
+    // use this delayed fetch instead of the one above
+    /*
+    setTimeout(() => {
+      fetch(BACKEND_URL + '?data=list-quizzes')
+      .then( response => response.json())
+      .then( (list) => {
+        return this.setState({ // populate the state will render the component
+          quizzes: list
+        });
+      });
+    },3000);
+    */
+
     // for cases when we land on the homepage
     // and get the username from the store directly,
     // we need to fetch 'stats-exist' route,
@@ -41,7 +56,11 @@ class HomeContent extends Component {
 
   render() {
     if(this.state.quizzes.length === 0) {
-      return <h1>Loading the list of quizzes...</h1>
+      return (
+        <div className="container">
+          <Loader text="Loading the list of quizzes..."/>
+        </div>
+      )
     }
     else {
       const noUsername = this.usernameIsEmpty();
