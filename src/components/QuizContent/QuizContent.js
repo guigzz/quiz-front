@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { CSSTransition, TransitionGroup, CSSTransitionGroup } from 'react-transition-group'
+import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import './QuizContent.css';
 import AppSubHeader from '../AppSubHeader/AppSubHeader';
 import QuizQuestion from '../QuizQuestion/QuizQuestion';
@@ -88,23 +88,15 @@ class QuizContent extends Component {
           </div>
         </AppSubHeader>
         <div className="container">
-          
-          {/* <CSSTransitionGroup 
-            transitionName="swipe" 
-            transitionEnterTimeout={1000}
-            transitionLeaveTimeout={1000}
-            transitionAppear={true} > */}
-            {/* <div key={thisQuestion.number} style={{width: "100px", height: "100px", background: "red"}}></div> */}
-            <TransitionGroup className='bla'>
-              <Anim key={thisQuestion.number}>
-                <QuizQuestion 
-                  number={thisQuestion.number} 
-                  text={thisQuestion.text} 
-                  choices={thisQuestion.choices} 
-                  onQuestionAnswered={(answer) => this.handleQuestionAnswered(answer)} />
-              </Anim>
-            </TransitionGroup>
-          {/* </CSSTransitionGroup> */}
+          <TransitionGroup className='bla'>
+            <Anim key={thisQuestion.number}>
+              <QuizQuestion 
+                number={thisQuestion.number} 
+                text={thisQuestion.text} 
+                choices={thisQuestion.choices} 
+                onQuestionAnswered={(answer) => this.handleQuestionAnswered(answer)} />
+            </Anim>
+          </TransitionGroup>
         </div>
       </div>
     );
