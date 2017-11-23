@@ -112,7 +112,6 @@ class ResultContent extends Component {
                     </div>
                   </div>
                 </div>
-                <Link to="/">Home</Link>
               </div>
             </div>
           </div>
