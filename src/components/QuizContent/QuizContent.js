@@ -4,6 +4,7 @@ import './QuizContent.css';
 import AppSubHeader from '../AppSubHeader/AppSubHeader';
 import QuizQuestion from '../QuizQuestion/QuizQuestion';
 import Loader from '../Loader/Loader';
+import Error from '../Error/Error';
 import Store from '../../utils/Store';
 import { APP_ID, BACKEND_URL } from '../../utils/constants.js';
 
@@ -74,9 +75,9 @@ class QuizContent extends Component {
     if(typeof(thisQuestion) === 'undefined') {
       return (
         <div className="container">
-          <h1>Oops, something went wrong...</h1>
+          <Error text="Something bad happened... What your are asking for may not exist."/>
         </div>
-        ); // TODO : put a real nice loading component or animation
+        );
     }
 
     return (

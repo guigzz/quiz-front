@@ -1,0 +1,25 @@
+@import 'styles/theme';
+
+.one-error {
+  margin-top: 30px;
+  text-align: center;
+  background-color: $light-danger-color;
+
+  div {
+    padding: 0;
+
+    .error-top {
+      font-size: 2.5rem;
+      color: $danger-color;
+      padding-top: 20px;
+      padding-bottom: 10px;
+    }
+
+    .error-text {
+      padding: 20px;
+      p {
+        color: $text-color;
+      }
+    }
+  }
+}
