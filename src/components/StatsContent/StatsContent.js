@@ -46,12 +46,12 @@ class StatsContent extends Component {
             <div>
               {this.state.stats.map((quiz) => {
                 return (
-                  <div className="stats-categ">
+                  <div key={quiz.quizId} className="stats-categ">
                     <h1 className="stats-categ-title">Quiz {quiz.quizId}: {quiz.quizTitle}</h1>
                     <div className="stats-categ-content columns is-multiline is-mobile">
                       {quiz.results.reverse().map((result) => {
                         return (
-                          <StatItem result={result.id} date={format(result.id)} score={result.score} />
+                          <StatItem key={result.id} result={result.id} date={format(result.id)} score={result.score} />
                         )
                       })}
                     </div>

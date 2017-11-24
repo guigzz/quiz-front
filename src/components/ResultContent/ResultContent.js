@@ -73,8 +73,8 @@ class ResultContent extends Component {
                             className="button primary-btn" 
                             title="Go to the homepage" 
                             onClick={this.handleToggleButtonClick.bind(this)}>
-                            <span class="icon is-large">
-                              <i class="fa fa-home"></i>
+                            <span className="icon is-large">
+                              <i className="fa fa-home"></i>
                             </span>
                             <span>Home</span>
                           </button>
@@ -86,8 +86,8 @@ class ResultContent extends Component {
                             className="button primary-btn" 
                             title="Try this quiz again" 
                             onClick={this.handleToggleButtonClick.bind(this)}>
-                            <span class="icon is-large">
-                              <i class="fa fa-repeat"></i>
+                            <span className="icon is-large">
+                              <i className="fa fa-repeat"></i>
                             </span>
                             <span>Retry</span>
                           </button>
@@ -98,8 +98,8 @@ class ResultContent extends Component {
                           className="button secondary-btn show-detail-btn" 
                           title={this.state.showAnswers ? "Hide answers" : "Show answers"} 
                           onClick={this.handleToggleButtonClick.bind(this)} >
-                          <span class="icon is-large">
-                            {this.state.showAnswers ? <i class="fa fa-eye-slash"></i> : <i class="fa fa-eye"></i>}
+                          <span className="icon is-large">
+                            {this.state.showAnswers ? <i className="fa fa-eye-slash"></i> : <i className="fa fa-eye"></i>}
                           </span>
                           <span>answers</span>
                         </button>

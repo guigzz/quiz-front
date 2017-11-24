@@ -8,8 +8,8 @@ class StatsButton extends Component {
         title="See your statistics" 
         className="stats-btn button primary-btn" 
         onClick={this.props.onButtonClicked}>
-        <span class="icon is-large">
-          <i class="fa fa-bar-chart"></i>
+        <span className="icon is-large">
+          <i className="fa fa-bar-chart"></i>
         </span>
       </button>
     )
